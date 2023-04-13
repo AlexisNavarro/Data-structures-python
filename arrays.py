@@ -1,7 +1,7 @@
 def add(names):
     print("\nin the add method")
 
-    position = int(input("Select what index you want to add a name to "))
+    position = int(input("Select what position to add a name "))
     name = input("Select what name you want to add ")
 
     size = len(names) + 1
@@ -29,11 +29,16 @@ def add(names):
             print(new_arr)
         
 
-
-
-
 def remove(names):
     print("in the remove method")
+
+    position = int(input("Select what position to remove a name "))
+ 
+    names.pop(position)
+
+    #verify that a pop and the index adjustment has been done.
+    for i in range(len(names)):
+        print("index:", i, "name", names[i])
 
 
 
