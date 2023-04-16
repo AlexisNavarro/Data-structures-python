@@ -52,7 +52,7 @@ def reg_queue():
 
 def prio_queue():
     print("accessed priority queue method")
-    user_in= int(input("1. create a priority queue from queue import \n2. create a priority queue using a list "))
+    user_in= int(input("1. create a priority queue from queue import \n2. create a priority queue using a dictionary "))
     if user_in == 1:
         #using the queue import to access the priority queue functions
         pq = queue.PriorityQueue()
