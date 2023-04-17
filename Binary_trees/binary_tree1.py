@@ -1,9 +1,15 @@
+#Purpose of this binary tree implementation is to show my profienciency in creating and using a binary tree
+#NOT IMPORTS WILL BE USED IN THIS IMPLEMENTATION
+
+#creating an object node to be used in the binary tree
 class Node: 
     def __init__(self, data):
         self.left = None
         self.right = None
         self.data = data
 
+    #Method to insert a node into a binary tree
+    #TIME COMPLEXITY  O(log n)
     def insert(self, data):
         if self.data is not None:
 
@@ -71,7 +77,27 @@ class Node:
             return self.search_node(root.left, value)
        
 
+    #method to find the smallest value in the binary tree
+    def find_min(self, root):
+        if root.left is None:
+            return root.data
+        return self.find_min(root.left)
+    
+    #method to find the largest value in the binary tree
+    def find_max(self, root):
+        if root.right is None:
+            return root.data
+        return self.find_max(root.right)
 
+    def calculate_sum(self, root):
+        sum = 0
+
+        if root is not None:
+            sum=root.data
+            sum+=self.calculate_sum(root.left)
+            sum+=self.calculate_sum(root.right)
+        return sum
+    #method to print the binary tree
     def print_binary_tree(self):
         if self.left:
             self.left.print_binary_tree()
@@ -92,13 +118,21 @@ def main ():
     root.insert(18)
     root.insert(20)
     root.insert(21)
+    
+    print("printing tree!!!!")
+    print("-------------------")
     root.print_binary_tree()
+    print("-------------------")
 
-    print(root.in_order_traversal(root))
-    print(root.pre_order_traversal(root))
-    print(root.post_order_traversal(root))
+    print("In order traversal: ",root.in_order_traversal(root))
+    print("Pre order traversal:  ",root.pre_order_traversal(root))
+    print("Post order traversal: ",root.post_order_traversal(root))
 
-    print(root.search_node(root, 1))
+    print(root.search_node(root, 20))
+    print("minimum value in the tree is: ", root.find_min(root))
+    print("maximum value in the tree is: ",root.find_max(root))
+
+    print("sum of all nodes is: ", root.calculate_sum(root))
 
 if __name__ == '__main__':
     main()
