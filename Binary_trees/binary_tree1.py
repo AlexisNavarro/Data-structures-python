@@ -83,12 +83,14 @@ class Node:
             return root.data
         return self.find_min(root.left)
     
+
     #method to find the largest value in the binary tree
     def find_max(self, root):
         if root.right is None:
             return root.data
         return self.find_max(root.right)
 
+    #method to calculate the total sum of the entire tree
     def calculate_sum(self, root):
         sum = 0
 
@@ -97,6 +99,8 @@ class Node:
             sum+=self.calculate_sum(root.left)
             sum+=self.calculate_sum(root.right)
         return sum
+    
+
     #method to print the binary tree
     def print_binary_tree(self):
         if self.left:
