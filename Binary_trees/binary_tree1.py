@@ -1,5 +1,5 @@
 #Purpose of this binary tree implementation is to show my profienciency in creating and using a binary tree
-#NOT IMPORTS WILL BE USED IN THIS IMPLEMENTATION
+#NO IMPORTS WILL BE USED IN THIS IMPLEMENTATION
 
 #creating an object node to be used in the binary tree
 class Node: 
