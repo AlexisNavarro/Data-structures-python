@@ -55,6 +55,22 @@ class Node:
             post_order.append(root.data)
         return post_order
     
+    #method to search for a specific node in the binary tree
+    def search_node(self, root, value):
+
+        #made a try and except, exception occurs when the value is not found.
+        try:
+            if root is None or root.data == value:
+                return "found the value" , root.data
+        except AttributeError as E:
+                return "value was not found", E
+       
+        if value > root.data: #traverse to the right subtree if the value is greater than the current node data
+           return self.search_node(root.right, value)
+        if value < root.data: #traverse to the left subtree if the value is less than the current node data
+            return self.search_node(root.left, value)
+       
+
 
     def print_binary_tree(self):
         if self.left:
@@ -62,7 +78,8 @@ class Node:
         print(self.data)
         if self.right:
             self.right.print_binary_tree()
-        
+    
+    
                     
 def main ():
     print("creating a binary tree")
@@ -80,6 +97,8 @@ def main ():
     print(root.in_order_traversal(root))
     print(root.pre_order_traversal(root))
     print(root.post_order_traversal(root))
+
+    print(root.search_node(root, 1))
 
 if __name__ == '__main__':
     main()
